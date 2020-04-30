@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<title>In The Green</title>
+</head>
+
+<body>
+	<nav>
+		<div class="nav-wrapper">
+			<a href="#!" class="brand-logo center">In The Green</a>
+			<form>
+				<div class="input-field">
+					<input id="searchShare" type="search" required>
+					<label class="label-icon" for="searchShare"><i class="material-icons">search</i></label>
+					<i id="closeSearch" class="material-icons">close</i>
+				</div>
+			</form>
+		</div>
+	</nav>
+	<div class="row">
+		<div class="col m6" id="searchHistory">
+			<table class="striped">
+				<thead>
+					<tr>
+						<th>Code</th>
+						<th>Region</th>
+						<th>More Info.</th>
+					</tr>
+				</thead>
+				<tbody id="tableBodySearchHistory">
+				</tbody>
+			</table>
+			<button class="btn red darken-1" data-clear>
+				Clear
+			</button>
+		</div>
+		<div class="col m6" id="shareDetails">
+			<table id="tableShareDetails">
+			</table>
+		</div>
+	</div>
+	<div class="row">
+		<form class="col m5">
+			<div class="row">
+				<!-- <div class="input-field s12">
+					<i class="material-icons prefix"></i>
+					<input id="nameOfShare" type="text" class="validate" />
+					<label for="nameOfShare">Name of Share</label>
+				</div> -->
+				<div class="input-field s12">
+					<i class="material-icons prefix"></i>
+					<input id="numberOfShares" type="number" class="validate" />
+					<label for="numberOfShares">Number of Shares</label>
+				</div>
+				<div class="input-field s12">
+					<i class="material-icons prefix"></i>
+					<input id="purchasePrice" type="number" min="0" step="0.01" class="validate" />
+					<label for="purchasePrice">Purchase Price (Per Share)</label>
+				</div>
+				<div class="input-field s12">
+					<i class="material-icons prefix"></i>
+					<input id="brokerage" type="number" class="validate" />
+					<label for="brokerage">Brokerage (automatically * 2)</label>
+				</div>
+				<div class="input-field s12">
+					<i class="material-icons prefix"></i>
+					<input id="targetPrice" type="number" min="0" step="0.01" class="validate" />
+					<label for="targetPrice">Target Sell Price (Per Share)</label>
+				</div>
+			</div>
+			<div class="s12 center-align">
+				<button id="calculateButton" class="btn waves-effect waves-light" type="submit" name="action">Calculate
+					<i class="material-icons right">send</i>
+				</button>
+			</div>
+		</form>
+		<div class="col offset-m1 m6">
+			<table>
+				<thead>
+					<tr>
+						<th>Purchase Total</th>
+						<th>Target Sell</th>
+						<th>Profit / Loss</th>
+						<th>Clear</th>
+					</tr>
+				</thead>
+				<tbody id="tableBodyCalculate">
+				</tbody>
+			</table>
+		</div>
+	</div>
+	<script src="./materialize.js"></script>
+	<script src="./main.js"></script>
+</body>
+
+</html>
