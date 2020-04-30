@@ -5,9 +5,10 @@
 	"main": "index.js",
 	"proxy": "http://localhost:3001/",
 	"scripts": {
+		"start": "node ./server/server.js",
 		"dev:fe": "webpack-dev-server --open --config webpack.dev.js -d",
 		"dev:be": "nodemon ./server/server.js",
-		"build": "webpack --config webpack.prod.js -p"
+		"heroku-postbuild": "webpack --config webpack.prod.js -p"
 	},
 	"author": "jmacro",
 	"license": "ISC",
