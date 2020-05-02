@@ -3,7 +3,6 @@ import * as calculate from './calculate/index';
 import API from './UTILS/api';
 
 import './ASSETS/scss/index.scss';
-import './ASSETS/scss/materialize/materialize.scss'
 
 // CALCULATE
 $.calculateButton.addEventListener('click', (e): void => {
