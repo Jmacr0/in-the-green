@@ -7,7 +7,8 @@ const plugins = [
 	new HtmlWebpackPlugin({
 		title: 'In The Green',
 		filename: 'index.html',
-		template: './index.ejs'
+		template: './index.ejs',
+		inject: 'head'
 	}),
 ];
 
