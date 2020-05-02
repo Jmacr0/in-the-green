@@ -7,9 +7,9 @@ const PORT = process.env.PORT || 3001;
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-app.use(express.static(__dirname + '../dist'));
+app.use(express.static(path.join(__dirname, '../dist')));
 
-app.get('/*', (_req, res) => {
+app.get('/', (_req, res) => {
 	res.sendFile(path.resolve(__dirname, '../dist/index.html'));
 });
 
