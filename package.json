@@ -1,4 +1,5 @@
 {
+	"homepage": "https://inthegreen.herokuapp.com/",
 	"name": "in-the-green",
 	"version": "1.0.0",
 	"description": "stock market tracking app",
