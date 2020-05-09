@@ -1,4 +1,4 @@
-import { baseTotal, targetTotal, difference } from '../src/calculate';
+import { baseTotal, targetTotal, difference } from '../src/CALCULATE';
 
 
 describe('Calculate', () => {
