@@ -61,11 +61,11 @@ export const searchShare =
     $.searchShare.addEventListener('keydown', async (e) => {
         if (e.key === "Enter") {
             e.preventDefault();
-            $.searchHistory.style.display = 'block';
+            $.searchHistory.style.display = 'none';
+            $.progressBar.style.display = 'block';
             $.tableBodySearchHistory.textContent = '';
             const currentSearchTerm: string = (e.target as HTMLInputElement).value;
             const searchResults: T.ShareInformation[] = await API.search(currentSearchTerm);
-            console.log(searchResults);
 
             for (let result of searchResults) {
 
@@ -100,6 +100,8 @@ export const searchShare =
                 noResults.innerHTML = 'No Results Found.';
                 $.tableBodySearchHistory.appendChild(noResults);
             }
+            $.progressBar.style.display = 'none';
+            $.searchHistory.style.display = 'block';
         }
     });
 
@@ -111,6 +113,7 @@ export const searchHistoryEvents =
         $.searchShare.value = '';
         if ('symbol' in eTarget.dataset) {
             $.tableShareDetails.textContent = '';
+            $.progressBar.style.display = 'block';
             const symbol = eTarget.dataset.symbol;
             const shareDetails = await API.searchBySymbol(symbol!);
 
@@ -145,7 +148,7 @@ export const searchHistoryEvents =
                 newRow.appendChild(newColValue);
                 $.tableShareDetails.appendChild(newRow);
             }
-
+            $.progressBar.style.display = 'none';
         }
         if ('clear' in eTarget.dataset) {
             $.searchHistory.style.display = 'none';

@@ -12,6 +12,7 @@ export const closeSearch: HTMLElement = document.querySelector<HTMLElement>('#cl
 export const calculateButton: HTMLButtonElement = document.querySelector<HTMLButtonElement>('#calculateButton')!;
 
 // DISPLAYS
+export const progressBar: HTMLDivElement = document.querySelector<HTMLDivElement>('.progress')!;
 export const searchHistory: HTMLDivElement = document.querySelector<HTMLDivElement>('#searchHistory')!;
 export const tableBodySearchHistory: HTMLTableSectionElement = document.querySelector<HTMLTableSectionElement>('#tableBodySearchHistory')!;
 export const shareDetails: HTMLDivElement = document.querySelector<HTMLDivElement>('#shareDetails')!;
