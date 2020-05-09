@@ -64,7 +64,7 @@ Materialize css
 
 ```
 ⬜ set different regions
-⬜ percentage indicator (profit/loss %) with matching colour
+✅ percentage indicator (profit/loss %) with matching colour
 ✅ save a default brokerage (indexedDB or localstorage)
 ⬜ show loading state when fetching api data
 ```
