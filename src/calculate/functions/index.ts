@@ -1,5 +1,5 @@
 import * as $ from '../../UTILS/selectors';
-import * as calculate from '../index';
+import * as calculate from '../';
 
 export const setTotalPriceValue = (totalPrice: string): void => {
     $.totalPurchasePrice.nextElementSibling?.classList.add('active');
