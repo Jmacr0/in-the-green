@@ -2,6 +2,7 @@
 export const searchShare: HTMLInputElement = document.querySelector<HTMLInputElement>('#searchShare')!;
 // export const nameOfShare: HTMLInputElement = document.querySelector<HTMLInputElement>('#nameOfShare')!;
 export const numberOfShares: HTMLInputElement = document.querySelector<HTMLInputElement>('#numberOfShares')!;
+export const totalPurchasePrice: HTMLInputElement = document.querySelector<HTMLInputElement>('#totalPurchasePrice')!;
 export const purchasePrice: HTMLInputElement = document.querySelector<HTMLInputElement>('#purchasePrice')!;
 export const brokerage: HTMLInputElement = document.querySelector<HTMLInputElement>('#brokerage')!;
 export const targetPrice: HTMLInputElement = document.querySelector<HTMLInputElement>('#targetPrice')!;
