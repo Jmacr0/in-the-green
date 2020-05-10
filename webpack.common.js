@@ -40,6 +40,10 @@ module.exports = {
 		{
 			test: /\.exec\.js$/,
 			use: ['script-loader']
+		},
+		{
+			test: /\.(png|svg|jpg|gif)$/,
+			use: ['file-loader']
 		}],
 	},
 	// devServer: {

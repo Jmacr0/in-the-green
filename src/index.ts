@@ -2,6 +2,7 @@ import * as M from './UTILS/materialize';
 import { setBrokerageFromLocalStorage } from './CALCULATE/functions';
 import * as L from './LISTENERS/';
 import './ASSETS/scss/index.scss';
+import './ASSETS/img/og-image.png';
 
 document.addEventListener('DOMContentLoaded', () => {
 
