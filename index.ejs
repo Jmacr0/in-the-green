@@ -12,18 +12,44 @@
 </head>
 
 <body>
-	<nav>
-		<div class="nav-wrapper">
-			<a href="#!" class="brand-logo center">In The Green</a>
-			<form>
-				<div class="input-field">
-					<input id="searchShare" type="search" required>
-					<label class="label-icon" for="searchShare"><i class="material-icons">search</i></label>
-					<i id="closeSearch" class="material-icons">close</i>
-				</div>
-			</form>
-		</div>
-	</nav>
+	<div class="navbar-fixed">
+		<nav>
+			<div class="nav-wrapper">
+				<a href="#!" class="brand-logo center">In The Green</a>
+				<form>
+					<div class="input-field">
+						<input id="searchShare" type="search" required>
+						<label class="label-icon" for="searchShare"><i class="material-icons">search</i></label>
+						<i id="closeSearch" class="material-icons">close</i>
+					</div>
+				</form>
+			</div>
+			<a data-target="slide-out"
+				class="btn-floating btn-small halfway-fab waves-effect waves-light sidenav-trigger">
+				<i class="material-icons">account_circle</i>
+			</a>
+		</nav>
+	</div>
+	<ul id="slide-out" class="sidenav">
+		<li>
+			<a class="subheader center">In The Green</a>
+		</li>
+		<li>
+			<div class="divider"></div>
+		</li>
+		<li>
+			<a class="waves-effect">
+				<i class="material-icons">account_circle</i>
+				Your Name Here
+			</a>
+		</li>
+		<li>
+			<a class="waves-effect">
+				<i class="material-icons">exit_to_app</i>
+				Login
+			</a>
+		</li>
+	</ul>
 	<div class="row">
 		<div class="progress" style="display: none;">
 			<div class="indeterminate"></div>
