@@ -44,7 +44,7 @@ export const calculateButton =
                 totalSharesValue = totalShares.toString();
                 calculate.functions.setNumberOfShares(totalSharesValue);
             }
-
+            //create a new row showing calculations based on input
             calculate.functions.createCalculateRow(
                 totalSharesValue,
                 baseTotal,
@@ -56,12 +56,26 @@ export const calculateButton =
     });
 
 // SEARCH
+const displayHalfwayFAB = () => {
+    const labelClassList = $.searchShare.nextElementSibling!.classList;
+    if (labelClassList.contains('active')) {
+        $.halfwayFAB.style.display = 'none';
+    }
+    if (!labelClassList.contains('active')) {
+        $.halfwayFAB.style.display = 'block';
+    }
+}
+
+export const searchInFocus = $.searchShare.addEventListener('focus', displayHalfwayFAB);
+export const searchOutFocus = $.searchShare.addEventListener('blur', displayHalfwayFAB);
+
 export const searchShare =
 
-    $.searchShare.addEventListener('keydown', async (e) => {
+    $.searchShare.addEventListener('keydown', async (e): Promise<void> => {
         if (e.key === "Enter") {
             e.preventDefault();
             $.searchHistory.style.display = 'none';
+            $.shareDetails.style.display = 'none';
             $.progressBar.style.display = 'block';
             $.tableBodySearchHistory.textContent = '';
             const currentSearchTerm: string = (e.target as HTMLInputElement).value;
@@ -108,7 +122,7 @@ export const searchShare =
 // ATTACH ALL HISTORY RELATED EVENTS TO PARENT
 export const searchHistoryEvents =
 
-    $.searchHistory.addEventListener('click', async (e) => {
+    $.searchHistory.addEventListener('click', async (e): Promise<void> => {
         const eTarget = (e.target as HTMLButtonElement);
         $.searchShare.value = '';
         if ('symbol' in eTarget.dataset) {
@@ -149,6 +163,7 @@ export const searchHistoryEvents =
                 $.tableShareDetails.appendChild(newRow);
             }
             $.progressBar.style.display = 'none';
+            $.shareDetails.style.display = 'block';
         }
         if ('clear' in eTarget.dataset) {
             $.searchHistory.style.display = 'none';
