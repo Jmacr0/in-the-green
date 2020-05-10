@@ -60,6 +60,12 @@ Materialize css
 ⬜ use local files through webpack (initially what I had done but too many unused scss files polluted the bundle)
 
 ```
+## Challenges
+
+```
+⛔️ When trying to use cloneNode for calculation rows, typescript does not recognise cloned element as an HMTL type but instead a Node type. This means I cannot target the children elements to insert data.
+```
+
 ## For Future Consideration
 
 ```
