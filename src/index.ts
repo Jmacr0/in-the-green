@@ -1,13 +1,14 @@
 import * as tooltips from './UTILS/tooltips';
 import * as $ from './UTILS/selectors';
+import { setBrokerageFromLocalStorage } from './CALCULATE/functions';
 import * as L from './LISTENERS/';
 import './ASSETS/scss/index.scss';
 
 document.addEventListener('DOMContentLoaded', () => {
 
 	// SET BROKERAGE IF IN LOCALSTORAGE
-	const savedBrokerage = localStorage.getItem('brokerage');
-	if (savedBrokerage) $.brokerage.value = savedBrokerage;
+	setBrokerageFromLocalStorage();
+
 	// TOOLTIPS
 	tooltips.elems;
 	tooltips.instances;
