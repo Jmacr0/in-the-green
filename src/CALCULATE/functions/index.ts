@@ -1,6 +1,15 @@
 import * as $ from '../../UTILS/selectors';
 import * as calculate from '../';
 
+export const setBrokerageFromLocalStorage = (): void => {
+    const savedBrokerage = localStorage.getItem('brokerage');
+    if (savedBrokerage) {
+        $.brokerage.nextElementSibling?.classList.add('active');
+        $.brokerage.classList.add('valid');
+        $.brokerage.value = savedBrokerage;
+    }
+}
+
 export const setTotalPriceValue = (totalPrice: string): void => {
     $.totalPurchasePrice.nextElementSibling?.classList.add('active');
     $.totalPurchasePrice.classList.add('valid');
