@@ -13,6 +13,7 @@ export const calculateButton: HTMLButtonElement = document.querySelector<HTMLBut
 
 // DISPLAYS
 export const progressBar: HTMLDivElement = document.querySelector<HTMLDivElement>('.progress')!;
+export const halfwayFAB: HTMLAnchorElement = document.querySelector<HTMLAnchorElement>('.halfway-fab')!;
 export const searchHistory: HTMLDivElement = document.querySelector<HTMLDivElement>('#searchHistory')!;
 export const tableBodySearchHistory: HTMLTableSectionElement = document.querySelector<HTMLTableSectionElement>('#tableBodySearchHistory')!;
 export const shareDetails: HTMLDivElement = document.querySelector<HTMLDivElement>('#shareDetails')!;
