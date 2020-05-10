@@ -14,7 +14,7 @@ const plugins = [
 module.exports = {
 	entry: {
 		main: './src/index.ts',
-		materialize: './src/ASSETS/js/materialize.js'
+		// materialize: './src/ASSETS/js/materialize.js'
 	},
 	plugins,
 	output: {
