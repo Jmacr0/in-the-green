@@ -9,7 +9,7 @@ AS an Australian stock trader
 
 I WANT to quickly calculate potential selling price
 
-SO THAT I can determine wether a profit is made after brokerage
+SO THAT I can determine whether a profit is made after brokerage
 ```
 ## Get Started
 Check the live version here:
@@ -73,4 +73,5 @@ Materialize css
 ✅ percentage indicator (profit/loss %) with matching colour
 ✅ save a default brokerage (indexedDB or localstorage)
 ⬜ show loading state when fetching api data
+⬜ clear button to clear inputs
 ```

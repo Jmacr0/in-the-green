@@ -10,6 +10,7 @@ export const targetPrice: HTMLInputElement = document.querySelector<HTMLInputEle
 // BUTTONS
 export const closeSearch: HTMLElement = document.querySelector<HTMLElement>('#closeSearch')!;
 export const calculateButton: HTMLButtonElement = document.querySelector<HTMLButtonElement>('#calculateButton')!;
+export const clearInputsButton: HTMLButtonElement = document.querySelector<HTMLButtonElement>('#clearInputsButton')!;
 
 // DISPLAYS
 export const progressBar: HTMLDivElement = document.querySelector<HTMLDivElement>('.progress')!;

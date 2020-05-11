@@ -119,6 +119,27 @@ export const searchShare =
         }
     });
 
+// CLEAR INPUTS
+export const clearAllInputs =
+
+    $.clearInputsButton.addEventListener('click', (e): void => {
+        e.preventDefault();
+        $.numberOfShares.value = '';
+        $.totalPurchasePrice.value = '';
+        $.purchasePrice.value = '';
+        $.targetPrice.value = '';
+
+        $.numberOfShares.classList.remove('valid');
+        $.totalPurchasePrice.classList.remove('valid');
+        $.purchasePrice.classList.remove('valid');
+        $.targetPrice.classList.remove('valid');
+
+        $.numberOfShares.nextElementSibling?.classList.remove('active');
+        $.totalPurchasePrice.nextElementSibling?.classList.remove('active');
+        $.purchasePrice.nextElementSibling?.classList.remove('active');
+        $.targetPrice.nextElementSibling?.classList.remove('active');
+    })
+
 // ATTACH ALL HISTORY RELATED EVENTS TO PARENT
 export const searchHistoryEvents =
 
@@ -131,32 +152,37 @@ export const searchHistoryEvents =
             const symbol = eTarget.dataset.symbol;
             const shareDetails = await API.searchBySymbol(symbol!);
 
-            const metaData = shareDetails['Meta Data'];
-            const latestShareData = shareDetails['Time Series (5min)'];
-
-            const latestShareKey = Object.keys(latestShareData)[0];
-            const latestShareDetails = latestShareData[latestShareKey];
+            const latestShareData = shareDetails['Global Quote'];
 
             const newRow = document.createElement('tr');
-            const latestTime = metaData['3. Last Refreshed'];
             const newColSymbol = document.createElement('th');
             newColSymbol.innerHTML = symbol!;
 
-            const newColDateTime = document.createElement('td');
-            newColDateTime.innerHTML = latestTime;
+            const newColDate = document.createElement('td');
+            const latestTradingDay = latestShareData['07. latest trading day'];
+            newColDate.innerHTML = latestTradingDay;
 
             newRow.appendChild(newColSymbol);
-            newRow.appendChild(newColDateTime);
+            newRow.appendChild(newColDate);
             $.tableShareDetails.appendChild(newRow);
-
-            for (const sharePriceAtPointInTime in latestShareDetails) {
+            //only select relevant data by filtering the keys
+            const allowedDataKeys: string[] = ['05. price', '06. volume', '10. change percent'];
+            const filteredLatestData = Object.keys(latestShareData)
+                .filter(key => allowedDataKeys.includes(key))
+                .reduce((obj, key) => {
+                    return {
+                        ...obj,
+                        [key]: latestShareData[key]
+                    };
+                }, {});
+            for (const valueAtPointInTime in filteredLatestData) {
                 const newRow = document.createElement('tr');
 
                 const newColType = document.createElement('th');
-                newColType.innerHTML = sharePriceAtPointInTime;
+                newColType.innerHTML = valueAtPointInTime;
 
                 const newColValue = document.createElement('td');
-                newColValue.innerHTML = latestShareDetails[sharePriceAtPointInTime];
+                newColValue.innerHTML = latestShareData[valueAtPointInTime];
 
                 newRow.appendChild(newColType);
                 newRow.appendChild(newColValue);
