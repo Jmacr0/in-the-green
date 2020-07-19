@@ -81,33 +81,36 @@ export const searchShare =
             const currentSearchTerm: string = (e.target as HTMLInputElement).value;
             const searchResults: T.ShareInformation[] = await API.search(currentSearchTerm);
 
-            for (let result of searchResults) {
+            if (searchResults) {
+                for (let result of searchResults) {
 
-                const symbol = result['1. symbol'];
-                const region = result['4. region'];
+                    const symbol = result['1. symbol'];
+                    const region = result['4. region'];
 
-                if (region !== 'Australia') {
-                    continue;
+                    // if (region !== 'Australia') {
+                    //     continue;
+                    // }
+
+                    const newRow: HTMLTableRowElement = document.createElement('tr');
+
+                    const newColSymbol: HTMLElement = document.createElement('td');
+                    newColSymbol.innerHTML = symbol;
+                    newRow.appendChild(newColSymbol);
+
+                    const newColRegion: HTMLElement = document.createElement('td');
+                    newColRegion.innerHTML = region;
+                    newRow.appendChild(newColRegion);
+
+                    const newButtonShareDetails: HTMLButtonElement = document.createElement('button');
+                    newButtonShareDetails.classList.add('btn');
+                    newButtonShareDetails.setAttribute('data-symbol', symbol);
+                    newButtonShareDetails.innerHTML = 'DETAILS';
+                    newRow.appendChild(newButtonShareDetails);
+
+                    $.tableBodySearchHistory.appendChild(newRow);
                 }
+            };
 
-                const newRow: HTMLTableRowElement = document.createElement('tr');
-
-                const newColSymbol: HTMLElement = document.createElement('td');
-                newColSymbol.innerHTML = symbol;
-                newRow.appendChild(newColSymbol);
-
-                const newColRegion: HTMLElement = document.createElement('td');
-                newColRegion.innerHTML = region;
-                newRow.appendChild(newColRegion);
-
-                const newButtonShareDetails: HTMLButtonElement = document.createElement('button');
-                newButtonShareDetails.classList.add('btn');
-                newButtonShareDetails.setAttribute('data-symbol', symbol);
-                newButtonShareDetails.innerHTML = 'DETAILS';
-                newRow.appendChild(newButtonShareDetails);
-
-                $.tableBodySearchHistory.appendChild(newRow);
-            }
             if (!$.tableBodySearchHistory.hasChildNodes()) {
                 console.log('nothing here,,,')
                 const noResults: HTMLTableRowElement = document.createElement('tr');
