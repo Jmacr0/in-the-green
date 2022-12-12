@@ -46,7 +46,7 @@
 		"@types/materialize-css": "^1.0.7",
 		"@types/node": "^13.13.0",
 		"axios": "^0.19.2",
-		"express": "^4.17.1",
+		"express": "^4.17.3",
 		"mysql2": "^2.1.0",
 		"sequelize": "^5.21.8",
 		"typescript": "^3.8.3"
